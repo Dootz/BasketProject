@@ -17,5 +17,10 @@ namespace BasketProject.Classes
             Quantity = quantity;
         }
 
+        public void setQuantity(int quantity)
+        {
+            Quantity = quantity;
+        }
+
     }
 }
