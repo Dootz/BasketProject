@@ -8,34 +8,22 @@ namespace BasketProject.Classes
 {
     class Basket
     {
-        public List<Item> ItemList { get; private set; }
+        public List<BasketItem> ItemList { get; private set; }
 
         /** Add item to basket
          * @param Item - item to add
          */
-        public void addItem(Item item)
+        public void addItem(Item item, int quantity)
         {
-            ItemList.Add(item);
-        }
+            ItemList.Add(new BasketItem ( item, quantity ));
+        }        
 
         /*
-         * Remove all items from list
+         * Remove all items from basket with given name
          */
-        public void removeAllItems()
+        public void removeAllItemsWithName(String name)
         {
-            ItemList.RemoveAll(IsItem);
-        }
-
-        /**
-         * Check if object is Item
-         * @param object to check
-         */
-        public static bool IsItem(object obj)
-        {
-            if (obj is Item)
-                return true;
-
-            return false;
+            ItemList.RemoveAll(x => x.ItemType.Name == name);
         }
     }
 }
